@@ -86,6 +86,49 @@
                             </table>
                         </div>
                     @endif
+                    <div class="row">
+                        <div class="col-12 col-sm-6 col-md-3">
+                          <div class="info-box">
+                            {{-- <span class="info-box-icon bg-info elevation-1"><i class="fas fa-smile"></i></span> --}}
+                            <div class="info-box-content">
+                              <span class="info-box-text">Main Course Favorit</span>
+                              <span class="info-box-number textUserOnline">Nasi Goreng</span>
+                            </div>
+                          </div>
+                        </div>
+              
+                        <div class="col-12 col-sm-6 col-md-3">
+                          <div class="info-box mb-3">
+                            {{-- <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-sign-language"></i></span> --}}
+                            <div class="info-box-content">
+                              <span class="info-box-text">Snack Favorit</span>
+                              <span class="info-box-number textTotalTransaction">Oreo</span>
+                            </div>
+                          </div>
+                        </div>
+              
+                        <div class="clearfix hidden-md-up"></div>
+              
+                        <div class="col-12 col-sm-6 col-md-3">
+                          <div class="info-box mb-3">
+                            {{-- <span class="info-box-icon bg-success elevation-1"><i class="fas fa-comments-dollar"></i></span> --}}
+                            <div class="info-box-content">
+                              <span class="info-box-text">Main Course Kurang Favorit</span>
+                              <span class="info-box-number textTotalOmset">Mie Goreng</span>
+                            </div>
+                          </div>
+                        </div>
+              
+                        <div class="col-12 col-sm-6 col-md-3">
+                          <div class="info-box mb-3">
+                            {{-- <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-hand-holding-usd"></i></span> --}}
+                            <div class="info-box-content">
+                              <span class="info-box-text">Snack Kurang Favorit</span>
+                              <span class="info-box-number textTotalProfit">Permen</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                 @else
                     <a href="{{ url('/login') }}" class="btn btn-primary">Login</a>
                 @endif

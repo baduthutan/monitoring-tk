@@ -28,9 +28,9 @@
             <tr>
               <th scope="col">Tanggal</th>
               <th scope="col">Pelajaran</th>
-              @if(Session::get('LoginRole')=='Super Admin')
+              
               <th scope="col">Kelas</th>
-              @endif
+              
               <th scope="col">Murid</th>
               <th scope="col">Tindakan</th>
               <th scope="col">Status</th>
@@ -61,6 +61,8 @@
                                     <input type="hidden" name="cg" value="{{ $Buku->Catatan_Guru }}">
                                     <input type="hidden" name="mc" value="{{ $Buku->Main_Course }}">
                                     <input type="hidden" name="snc" value="{{ $Buku->Snack }}">
+                                    <input type="hidden" name="stmc" value="{{ $Buku->Status_Mcourse }}">
+                                    <input type="hidden" name="stsnc" value="{{ $Buku->Status_Snack }}">
                                     <input type="hidden" name="abs" value="{{ $Buku->Absen }}">
                                     <button type="button submit" style="border-top-right-radius: 0;
                                     border-bottom-right-radius: 0;" class="btn btn-sm btn-outline-primary">Detail</button>
@@ -91,22 +93,25 @@
                     @if(Session::get('LoginRole')=='Murid')
                         @if ($Buku->NIS_Murid==Session::get('row1ans'))
                         <tr>
-                            <td>{{ $Buku->tanggal }}</td>
-                            <td>{{ $Buku->ID_Pelajaran }}</td>
-                            <td>{{ $Buku->NIS_Murid }}</td>
+                          <td>{{ $Buku->tanggal }}</td>
+                          <td>{{ $Buku->mapel->Nama_Pelajaran }}</td>
+                          <td>{{ $Buku->kelas->Nama_Kelas }}</td>
+                          <td>{{ $Buku->murid->Nama_Murid }}</td>
                             <td><form method="POST" action="{{ url('/penghubung-detailortu/'.$Buku->ID_Buku) }}">
                               @method('PATCH')  
                               @csrf
-                                <input type="hidden" name="idb" value="{{ $Buku->ID_Buku }}">
-                                <input type="hidden" name="idk" value="{{ $Buku->ID_Kelas }}">
-                                <input type="hidden" name="nis" value="{{ $Buku->NIS_Murid }}">
-                                <input type="hidden" name="idp" value="{{ $Buku->ID_Pelajaran }}">
-                                <input type="hidden" name="tgl" value="{{ $Buku->tanggal }}">
-                                <input type="hidden" name="eot" value="{{ $Buku->Evaluasi_OrangTua}}">
-                                <input type="hidden" name="cg" value="{{ $Buku->Catatan_Guru }}">
-                                <input type="hidden" name="mc" value="{{ $Buku->Main_Course }}">
-                                <input type="hidden" name="snc" value="{{ $Buku->Snack }}">
-                                <input type="hidden" name="abs" value="{{ $Buku->Absen }}">
+                              <input type="hidden" name="idb" value="{{ $Buku->ID_Buku }}">
+                              <input type="hidden" name="idk" value="{{ $Buku->kelas->Nama_Kelas }}">
+                              <input type="hidden" name="nis" value="{{ $Buku->murid->Nama_Murid }}">
+                              <input type="hidden" name="idp" value="{{ $Buku->mapel->Nama_Pelajaran }}">
+                              <input type="hidden" name="tgl" value="{{ $Buku->tanggal }}">
+                              <input type="hidden" name="eot" value="{{ $Buku->Evaluasi_OrangTua}}">
+                              <input type="hidden" name="cg" value="{{ $Buku->Catatan_Guru }}">
+                              <input type="hidden" name="mc" value="{{ $Buku->Main_Course }}">
+                              <input type="hidden" name="snc" value="{{ $Buku->Snack }}">
+                              <input type="hidden" name="stmc" value="{{ $Buku->Status_Mcourse }}">
+                              <input type="hidden" name="stsnc" value="{{ $Buku->Status_Snack }}">
+                              <input type="hidden" name="abs" value="{{ $Buku->Absen }}">
                                 <button type="submit" class="btn btn-sm btn-outline-primary">Detail</button>
                                 
                                 
@@ -127,24 +132,25 @@
                     @if(Session::get('LoginRole')=='Pengajar')
                         @if ($Buku->ID_Kelas==Session::get('kelasguru'))
                         <tr>
-                            <td>{{ $Buku->tanggal }}</td>
-                            <td>{{ $Buku->ID_Pelajaran }}</td>
-                            <td>{{ $Buku->NIS_Murid }}</td>
-                            <td>
-                            
-                              <div class="btn-group me-2">
+                          <td>{{ $Buku->tanggal }}</td>
+                          <td>{{ $Buku->mapel->Nama_Pelajaran }}</td>
+                          <td>{{ $Buku->kelas->Nama_Kelas }}</td>
+                          <td>{{ $Buku->murid->Nama_Murid }}</td>
+                              <td><div class="btn-group me-2">
                                   <form method="POST" action="{{ url('/penghubung-detailbuku/'.$Buku->ID_Buku) }}">
                                     @method('PATCH')
                                     @csrf
                                     <input type="hidden" name="idb" value="{{ $Buku->ID_Buku }}">
-                                    <input type="hidden" name="idk" value="{{ $Buku->ID_Kelas }}">
-                                    <input type="hidden" name="nis" value="{{ $Buku->NIS_Murid }}">
-                                    <input type="hidden" name="idp" value="{{ $Buku->ID_Pelajaran }}">
+                                    <input type="hidden" name="idk" value="{{ $Buku->kelas->Nama_Kelas }}">
+                                    <input type="hidden" name="nis" value="{{ $Buku->murid->Nama_Murid }}">
+                                    <input type="hidden" name="idp" value="{{ $Buku->mapel->Nama_Pelajaran }}">
                                     <input type="hidden" name="tgl" value="{{ $Buku->tanggal }}">
                                     <input type="hidden" name="eot" value="{{ $Buku->Evaluasi_OrangTua}}">
                                     <input type="hidden" name="cg" value="{{ $Buku->Catatan_Guru }}">
                                     <input type="hidden" name="mc" value="{{ $Buku->Main_Course }}">
                                     <input type="hidden" name="snc" value="{{ $Buku->Snack }}">
+                                    <input type="hidden" name="stmc" value="{{ $Buku->Status_Mcourse }}">
+                                    <input type="hidden" name="stsnc" value="{{ $Buku->Status_Snack }}">
                                     <input type="hidden" name="abs" value="{{ $Buku->Absen }}">
                                     <button type="button submit" style="border-top-right-radius: 0;
                                     border-bottom-right-radius: 0;" class="btn btn-sm btn-outline-primary">Detail</button>

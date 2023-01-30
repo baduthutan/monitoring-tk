@@ -79,6 +79,8 @@ class detailBuku extends Controller
             'cg' => $request->cg,
             'mc' => $request->mc,
             'snc' => $request->snc,
+            'stmc' => $request->stmc,
+            'stsnc' => $request->stsnc,
             'abs' => $request->abs,
           ];
     

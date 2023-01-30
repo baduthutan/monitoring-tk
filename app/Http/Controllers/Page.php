@@ -84,16 +84,20 @@ class Page extends Controller
   $status_array = $request->input('status');
   $nis_array = $request->input('nis');
   $idk_array = $request->input('idk');
+  $maincourse_array = $request->input('maincourse');
+  $snack_array = $request->input('snack');
   $newdate = str_replace('-', '', $tgl);
   for ($i = 0; $i < count($idk_array); $i++) {
     $data = [
-      'ID_Buku' => 'BP' . $newdate . $nis_array[$i] . $idk_array[$i],
+      'ID_Buku' => 'BP' . $newdate . str_replace('M', '', $nis_array[$i]) . str_replace('PE', '', $idp),
       'ID_Kelas' => $idk_array[$i],
       'NIS_Murid' => $nis_array[$i],
       'ID_Pelajaran' => $idp,
       'tanggal' => $tgl,
       'Main_Course' => $mc,
       'Snack' => $snc,
+      'Status_Mcourse' => $maincourse_array[$i],
+      'Status_Snack' => $snack_array[$i],
       'Absen' => $status_array[$i],
     ];
     Buku_penghubung::insert($data);

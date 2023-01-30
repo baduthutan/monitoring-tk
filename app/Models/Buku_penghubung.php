@@ -43,6 +43,8 @@ class Buku_penghubung extends Model
             'Catatan_Guru',
             'Main_Course',
             'Snack',
+            'Status_Mcourse',
+            'Status_Snack',
             'Absen'
         ];
 }

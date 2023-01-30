@@ -36,8 +36,11 @@
         <table class="table table-striped table-sm">
           <thead>
             <tr>
-              <th scope="col" style="width: 70%;">Nama</th>
-              <th scope="col" style="width: 30%;">Absensi</th>
+              <th scope="col" style="width: 48%;">Nama</th>
+              <th scope="col" style="width: 12%;">Absensi</th>
+              <th scope="col" style="width: 12%;">Main Course</th>
+              <th scope="col" style="width: 12%;">Snack</th>
+              <th scope="col" style="width: 12%;">Grade</th>
             </tr>
           </thead>
           <tbody>
@@ -55,6 +58,28 @@
                             <option value="Alpa">Alpa</option>
                           </select>  
                     </td>
+                    <td>
+                      <select name="maincourse[]" id="status" class="form-select form-select-sm" style="width: 85px;">
+                          <option value="1">Habis</option>
+                          <option value="-1">Tidak Habis</option>
+                          <option value="0">Tidak Hadir</option>
+                        </select>  
+                  </td>
+                  <td>
+                    <select name="snack[]" id="status" class="form-select form-select-sm" style="width: 85px;">
+                        <option value="1">Habis</option>
+                        <option value="-1">Tidak Habis</option>
+                        <option value="0">Tidak Hadir</option>
+                      </select>  
+                </td>
+                <td>
+                  <select name="grade[]" id="status" class="form-select form-select-sm" style="width: 85px;">
+                      <option value="A">A</option>
+                      <option value="B">B</option>
+                      <option value="C">C</option>
+
+                    </select>  
+              </td>
                 </tr>
               @endif
             @endforeach

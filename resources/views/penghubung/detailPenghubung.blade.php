@@ -19,6 +19,30 @@
 @endif
 @endsection
 
+@section('stat1')
+@if($stmc == 1)
+<span class="badge text-bg-primary">Habis</span>
+@endif
+@if($stmc == -1)
+<span class="badge text-bg-danger">Tidak Habis</span>
+@endif
+@if($stmc ==  0)
+<span class="badge text-bg-secondary">Tidak Hadir</span>
+@endif
+@endsection
+
+@section('stat2')
+@if($stsnc == 1)
+<span class="badge text-bg-primary">Habis</span>
+@endif
+@if($stsnc == -1)
+<span class="badge text-bg-danger">Tidak Habis</span>
+@endif
+@if($stsnc == 0)
+<span class="badge text-bg-secondary">Tidak Hadir</span>
+@endif
+@endsection
+
 @section('content')
 <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
@@ -62,12 +86,14 @@
             <th scope="row">Main Course</th>
             <td>
               {{ $mc }}
+              @yield('stat1')
             </td>
           </tr>
           <tr>
             <th scope="row">Snack</th>
             <td>
               {{ $snc }}
+              @yield('stat2')
             </td>
           </tr>
           <tr>

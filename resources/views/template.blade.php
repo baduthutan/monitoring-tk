@@ -8,6 +8,19 @@
     <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/dashboard/">
 
     <style>
+      .info-box {
+    box-shadow: 0 0 1px rgb(0 0 0 / 13%), 0 1px 3px rgb(0 0 0 / 20%);
+    border-radius: 0.25rem;
+    background-color: #fff;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    margin-bottom: 1rem;
+    min-height: 80px;
+    padding: 0.5rem;
+    position: relative;
+    width: 100%;
+}
       .bd-placeholder-img {
         font-size: 1.125rem;
         text-anchor: middle;
